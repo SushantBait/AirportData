@@ -21,7 +21,7 @@ public class AirlineData {
 	}
 
 	public void displayRecords(String CODE) throws SQLException {
-		PreparedStatement stmt = conn.prepareStatement("Select * from AIRPORT_INFO Where PLANE_CODE =  " + CODE);
+		PreparedStatement stmt = conn.prepareStatement("Select * from AIRPORT_INFO Where PLANE_CODE =  '" + CODE+"'");
 
 		rs = stmt.executeQuery();
 		while (rs.next()) {
@@ -29,12 +29,8 @@ public class AirlineData {
 					+ rs.getString("SOURCE") + " \t" + rs.getString("DESTINATION") + "\t " + rs.getDate("DATE") + "\t "
 					+ rs.getTime("ARRIVAL") + "\t " + rs.getTime("DEPARTURE") + " \t" + rs.getString("STATUS") + "\t "
 					+ rs.getTime("DURATION") + "\t " + rs.getTime("IDLE_TIME") + "\t " + rs.getInt("NO_OF_STOPS"));
-
 		}
-		stmt.executeUpdate();
-
 		stmt.close();
-
 	}
 
 	public static void main(String[] args) throws SQLException {

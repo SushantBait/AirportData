@@ -1,5 +1,3 @@
-package taskFour;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,7 +17,6 @@ public class AirlineData {
 		conn = DriverManager.getConnection(url, uname, pwd);
 		System.out.println("Connnected to DB...");
 	}
-
 	public void displayRecords(String CODE) throws SQLException {
 		PreparedStatement stmt = conn.prepareStatement("Select * from AIRPORT_INFO Where PLANE_CODE =  '" + CODE+"'");
 
